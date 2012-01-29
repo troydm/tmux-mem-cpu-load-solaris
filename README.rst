@@ -22,7 +22,8 @@ Licensed under GNU LESSER GENERAL PUBLIC LICENSE version 3 (see LICENSE file)
 Usage
 ========
     
-tmux-mem-cpu-load [options]::
+tmux-mem-cpu-load [options]
+::
     -mem - disables memory output
     --interva=n - where n is number of seconds between cpu load measurement
     --graphs=n - where n is number of graphs to use (if n=0 detailed cpu load information is displayed instead of simple graphical output)
