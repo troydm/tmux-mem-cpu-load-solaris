@@ -21,16 +21,19 @@ Licensed under GNU LESSER GENERAL PUBLIC LICENSE version 3 (see LICENSE file)
 
 Usage
 ========
-tmux-mem-cpu-load [options]
-    -mem - disables memory output
-    --interva=n - where n is number of seconds between cpu load measurement
-    --graphs=n - where n is number of graphs to use (if n=0 detailed cpu load information is displayed instead of simple graphical output)
-    -load - disables load average output
+    
+    tmux-mem-cpu-load [options]
+    options are:
+        -mem - disables memory output
+        --interva=n - where n is number of seconds between cpu load measurement
+        --graphs=n - where n is number of graphs to use (if n=0 detailed cpu load information is displayed instead of simple graphical output)
+        -load - disables load average output
 
 Configuring tmux_
 =======================
 
 Edit your ``$HOME/.tmux.conf`` to display the program's output in *status-left* or *status-right*.  For example::
+    
     set -g status-interval 2
     set -g status-left "#(tmux-mem-cpu-load --interval=2 --graphs=10)#[default]"
 
