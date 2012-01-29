@@ -24,10 +24,10 @@ Usage
     
     tmux-mem-cpu-load [options]
     options are:
-        -mem - disables memory output
-        --interva=n - where n is number of seconds between cpu load measurement
-        --graphs=n - where n is number of graphs to use (if n=0 detailed cpu load information is displayed instead of simple graphical output)
-        -load - disables load average output
+    -mem - disables memory output
+    --interva=n - where n is number of seconds between cpu load measurement
+    --graphs=n - where n is number of graphs to use (if n=0 detailed cpu load information is displayed instead of simple graphical output)
+    -load - disables load average output
 
 Configuring tmux_
 =======================
