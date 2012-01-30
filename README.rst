@@ -39,6 +39,11 @@ Edit your ``$HOME/.tmux.conf`` to display the program's output in *status-left* 
 
 Note that --interval=n to tmux-mem-cpu-load should be the same number of seconds that status-interval is set at.
 
+My configuration::
+    set -g status-interval 2
+    set -g status-right-length 100
+    set -g status-right "#[bg=colour189] #(tmux-vbox-vm-load.pl) #(tmux-mem-cpu-load -load --interval=2 --graphs=20)  %m/%d/%Y %H:%M "
+
 Author
 ======
 
