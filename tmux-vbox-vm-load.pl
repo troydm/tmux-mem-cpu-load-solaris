@@ -3,33 +3,21 @@
 use strict;
 use warnings;
 
-open(VM,'VBoxManage list runningvms |') or die "Couldn't open VBoxManage: $!";
-
 my %vms = ();
 
-while(<VM>){
+open(PS,'ps -ef | grep VBoxHeadless | grep -v grep |') or die "Couldn't list VBoxHeadless processes: $!";
+
+while(<PS>){
     chomp;
-    if(m/"(.*)" {([^-]*)-.*/){
-        my ($vm,$id) = ($1,$2);
-        $vms{ $vm } = $id;
+    if(m/(\d+).* --comment (.*) --startvm ([^-]*)-.*/){
+        my ($vmpid,$vm,$id) = ($1,$2,$3);
+        $vms{ $vm } = $vmpid; 
     }
 }
 
-close(VM);
+close(PS);
 
-if( (scalar keys %vms) > 0 ){
-    open(PS,'ps -ef | grep VBoxHeadless | grep -v grep |') or die "Couldn't list VBoxHeadless processes: $!";
-
-    while(<PS>){
-        chomp;
-        if(m/(\d+).* --comment (.*) --startvm ([^-]*)-.*/){
-            my ($vmpid,$vm,$id) = ($1,$2,$3);
-            if($vms{ $vm } eq $id) { $vms{ $vm } = $vmpid; }
-        }
-    }
-
-    close(PS);
-
+if(scalar(%vms) > 0){
     my $pidlist = join(',',values %vms);
     open(PRS,"prstat -p $pidlist 1 1 |") or die "Couldn't prstat processes";
 
@@ -50,4 +38,3 @@ if( (scalar keys %vms) > 0 ){
         print " $vm:$vmls{$vmpid}";
     }
 }
-
