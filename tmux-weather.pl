@@ -56,10 +56,10 @@ close(WD);
 
 my $symbol = '☀ ';
 
-if($condition =~ /rain/i){
-    $symbol = '☂ ';
-}elsif($condition =~ /shower/i){
+if($condition =~ /shower/i){
     $symbol = '☔ ';
+}elsif($condition =~ /rain/i){
+    $symbol = '☂ ';
 }elsif($condition =~ /sun/i){
     $symbol = '☀ ';
 }elsif($condition =~ /cloud/i){
