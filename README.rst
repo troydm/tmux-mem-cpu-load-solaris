@@ -53,3 +53,7 @@ Dmitry Geurkov (troydm) <d.geurkov@gmail.com>
 .. _tmux: http://tmux.sourceforge.net/
 .. _tmux-mem-cpu-load: https://github.com/thewtex/tmux-mem-cpu-load
     
+Bonus
+=====
+
+I've added my virtualbox vm load and weather applet perl scripts, enjoy
