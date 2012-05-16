@@ -54,7 +54,7 @@ my $condition = $weatherData[4];
 
 close(WD);
 
-my $symbol = '☀ ';
+my $symbol = '☁ ';
 
 if($condition =~ /shower/i){
     $symbol = '☔ ';
