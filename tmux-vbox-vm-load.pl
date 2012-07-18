@@ -9,15 +9,15 @@ open(PS,'ps -ef | grep VBoxHeadless | grep -v grep |') or die "Couldn't list VBo
 
 while(<PS>){
     chomp;
-    if(m/(\d+).* --comment (.*) --startvm ([^-]*)-.*/){
-        my ($vmpid,$vm,$id) = ($1,$2,$3);
+    if(m/(\d+).* --comment (.*) --startvm/){
+        my ($vmpid,$vm) = ($1,$2);
         $vms{ $vm } = $vmpid; 
     }
 }
 
 close(PS);
 
-if(scalar(%vms) > 0){
+if(keys(%vms) > 0){
     my $pidlist = join(',',values %vms);
     open(PRS,"prstat -p $pidlist 1 1 |") or die "Couldn't prstat processes";
 
